@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class MatAddition {
+public class MatrixAddition {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int ROW1, ROW2, COL1, COL2;
