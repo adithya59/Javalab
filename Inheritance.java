@@ -24,7 +24,11 @@ class Employee {
 		address = sc.next();
 	}
 	public void printSalary() {
-		System.out.println(this.salary);
+		System.out.println("Name: "+this.name);
+		System.out.println("Age: "+this.age);
+		System.out.println("Phone Number: "+this.phonenumber);
+		System.out.println("Salary: "+this.salary);
+		System.out.println("Address: "+this.address);
 	}
 }
 class Officer extends Employee {
