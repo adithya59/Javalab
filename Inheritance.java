@@ -31,16 +31,25 @@ class Employee {
 		System.out.println("Address: "+this.address);
 	}
 }
-class Officer extends Employee {
-	public void specialisation() {
-		Scanner sc = new Scanner(System.in);
-		String specialisation = sc.next();
+class Officer extends Employee{
+	String Specialisation; 
+	void getSpecialisation() {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter the Specialisation:");
+	    Specialization=sc.nextLine();
+	}
+	 void printSpecialization() {
+	    System.out.println("Specialisation: "+Specialization); 
+	 }
+}
+class Manager extends Employee{
+	String Department;
+	Scanner sc = new Scanner(System.in);
+	void getDepartment() {
+		System.out.println("Enter Department:");
+		department=sc.nextLine();		
+	}
+	void printDepartment() {
+		System.out.println("Depratment: "+Department);
 	}
 }
-class Manager extends Employee {
-	public void department() {
-		Scanner sc = new Scanner(System.in);
-		String department = sc.next();
-	}
-}
-
