@@ -3,19 +3,10 @@ public class Inheritance {
 	public static void main(String[] args) {
 		Officer officer = new Officer();
 		Manager manager = new Manager();
-		officer.getData();
-		Officer of=new Officer();
-		Manager Ma=new Manager();
 		System.out.println("Enter the Details of Officer");
-		of.setDetails();
-		of.setSpecialization();
-		of.getDetails();	
-		of.getSpecialization();
-		System.out.println("Enter THE Details Of Manager");
-		Ma.setDetails();
-		Ma.setDepartment();
-		Ma.getDetails();
-		Ma.getDepartment();	
+		officer.officerDetails();
+		System.out.println("\nEnter the Details Of Manager");
+		manager.managerDetails();
 	}
 }
 class Employee {
@@ -44,24 +35,24 @@ class Employee {
 	}
 }
 class Officer extends Employee{
-	String Specialisation; 
-	void getSpecialisation() {
-	    Scanner sc = new Scanner(System.in);
-	    System.out.println("Enter the Specialisation:");
-	    Specialization=sc.nextLine();
+	String Specialisation;
+	Scanner sc = new Scanner(System.in);
+	public void officerDetails() {
+		getData();
+		System.out.println("Enter the Specialisation:");
+		Specialisation=sc.next();
+		printDetails();
+		System.out.println("Specialisation: "+Specialisation); 
 	}
-	 void printSpecialization() {
-	    System.out.println("Specialisation: "+Specialization); 
-	 }
 }
 class Manager extends Employee{
 	String Department;
 	Scanner sc = new Scanner(System.in);
-	void getDepartment() {
+	public void managerDetails() {
+		getData();
 		System.out.println("Enter Department:");
-		department=sc.nextLine();		
-	}
-	void printDepartment() {
-		System.out.println("Depratment: "+Department);
+		Department=sc.next();
+		printDetails();
+		System.out.println("Department: "+Department);
 	}
 }
