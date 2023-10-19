@@ -24,7 +24,7 @@ class Employee {
 		System.out.println("Enter Salary");
 		salary = sc.nextLong();
 		System.out.println("Enter Address:");
-		address = sc.next();
+		address = sc.nextLine();
 	}
 	public void printDetails() {
 		System.out.println("Name: "+this.name);
