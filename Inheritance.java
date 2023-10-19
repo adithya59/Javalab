@@ -4,6 +4,18 @@ public class Inheritance {
 		Officer officer = new Officer();
 		Manager manager = new Manager();
 		officer.getData();
+		Officer of=new Officer();
+		Manager Ma=new Manager();
+		System.out.println("Enter the Details of Officer");
+		of.setDetails();
+		of.setSpecialization();
+		of.getDetails();	
+		of.getSpecialization();
+		System.out.println("Enter THE Details Of Manager");
+		Ma.setDetails();
+		Ma.setDepartment();
+		Ma.getDetails();
+		Ma.getDepartment();	
 	}
 }
 class Employee {
