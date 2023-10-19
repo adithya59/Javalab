@@ -16,7 +16,7 @@ class Employee {
 	long salary,phonenumber;
 	public void getData() {
 		System.out.println("Enter Name:");
-		name = sc.next();
+		name = sc.nextLine();
 		System.out.println("Enter Age:");
 		age = sc.nextInt();
 		System.out.println("Enter Phone Number:");
