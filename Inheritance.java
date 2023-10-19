@@ -23,7 +23,7 @@ class Employee {
 		System.out.println("Enter Address:");
 		address = sc.next();
 	}
-	public void printSalary() {
+	public void printDetails() {
 		System.out.println("Name: "+this.name);
 		System.out.println("Age: "+this.age);
 		System.out.println("Phone Number: "+this.phonenumber);
