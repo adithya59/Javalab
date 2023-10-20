@@ -24,6 +24,7 @@ class Employee {
 		System.out.println("Enter Salary");
 		salary = sc.nextLong();
 		System.out.println("Enter Address:");
+		sc.nextLine();
 		address = sc.nextLine();
 	}
 	public void printDetails() {
