@@ -20,7 +20,6 @@ public class Interface {
 		d.eat();
 		d.setname("Momo");
 		System.out.println("This fish's name "+d.getname());
-		//a.setname(null);
 	}
 }
 
