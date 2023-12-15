@@ -1,7 +1,10 @@
+package exam;
+import java.util.LinkedList;
 import java.util.Scanner;
-public class DoublyLinkedList {
+
+class DoublyLinkedList{
 	public static void main(String[] args) {
-		Node node = new Node();
+		LinkedList<Integer> list = new LinkedList<>();
 		Scanner sc = new Scanner(System.in);
 		boolean key = true;
 		System.out.println("****Doubly Linked List****");
@@ -19,15 +22,23 @@ public class DoublyLinkedList {
 				System.out.println("Enter a choice");
 				switch (sc.nextInt()) {
 				case 1: {
-					node.InsertAtBeginning();
+					System.out.println("Enter an element:");
+					int element = sc.nextInt();
+					list.addFirst(element);
 					break;
 				}
 				case 2: {
-					node.InsertAtAnyPosition();
+					System.out.println("Enter an element:");
+					int element = sc.nextInt();
+					System.out.println("Enter a Position:");
+					int position = sc.nextInt();
+					list.add(position, element);
 					break;
 				}
 				case 3: {
-					node.InsertAtEnd();
+					System.out.println("Enter an element:");
+					int element = sc.nextInt();
+					list.addLast(element);
 					break;
 				}
 				default:{
@@ -43,15 +54,15 @@ public class DoublyLinkedList {
 				System.out.println("Enter a choice");
 				switch (sc.nextInt()) {
 				case 1: {
-					node.DeleteFromBeginning();
+					list.removeFirst();
 					break;
 				}
 				case 2: {
-					node.DeleteFromPosition();
+					list.removeLast();
 					break;
 				}
 				case 3: {
-					node.DeleteFromEnd();
+					list.remove();
 					break;
 				}
 				default:
@@ -59,7 +70,10 @@ public class DoublyLinkedList {
 				}
 			}
 			case 3: {
-				node.Display();
+				for(Integer element: list) {
+					 System.out.println(element+" ");
+				 }
+				 System.out.println();
 				break;
 			}
 			case 4: {
@@ -70,114 +84,6 @@ public class DoublyLinkedList {
 				throw new IllegalArgumentException("Unexpected value: " + sc.nextInt());
 				}
 			}
-		}
-	}
-}
-
-class Node {
-	Node prev,next,ptr;
-	int data;
-	Node head,tail = null;
-	Scanner sc = new Scanner(System.in);
-	public void InsertAtBeginning(){
-		Node newnode = new Node();
-		System.out.println("Enter data:");
-		newnode.data=sc.nextInt();
-		if (head==null) {
-			head = tail = newnode;
-		}
-		else {
-			newnode.next = head;
-			head.prev = newnode;
-			head = newnode;
-		}
-	}
-	
-	public void InsertAtAnyPosition(){
-		ptr=head;
-		Node newnode = new Node();
-		System.out.println("Enter data:");
-		newnode.data=sc.nextInt();
-		System.out.println("Enter Position:");
-		int pos = sc.nextInt();
-		if (head==null) {
-			head = tail = newnode;
-		}
-		else {
-			ptr=head;
-			for(int i=2;i<pos;i++) {
-				ptr=ptr.next;
-			}
-			ptr.next.prev=newnode;
-			newnode.next=ptr.next;
-			newnode.prev=ptr;
-			ptr.next=newnode;
-		}
-	}
-	
-	public void InsertAtEnd(){
-		ptr=head;
-		Node newnode = new Node();
-		System.out.println("Enter data:");
-		newnode.data=sc.nextInt();
-		if (head==null) {
-			head = tail = newnode;
-		}
-		else {
-			while(ptr.next!=null) {
-				ptr=ptr.next;
-			}
-			ptr.next=newnode;
-			newnode.prev=ptr;
-			newnode=tail;
-		}
-	}
-	
-	public void DeleteFromBeginning(){
-		if (head==null) {
-			System.out.println("Empty List");
-		}
-		else {
-			head=head.next;
-			head.prev=null;
-		}
-	}
-	
-	public void DeleteFromEnd(){
-		if (head==null) {
-			System.out.println("Empty List");
-		}
-		else {
-			ptr=head;
-			while(ptr.next!=null) {
-				ptr=ptr.next;
-			}
-			ptr.prev.next=null;
-		}
-	}
-	
-	public void DeleteFromPosition(){
-		System.out.println("Enter a Position:");
-		int pos = sc.nextInt();
-		if (head==null) {
-			System.out.println("Empty List");
-		}
-		else {
-			ptr=head;
-			for(int i=2;i<pos;i++) {
-				ptr=ptr.next;
-			}
-			ptr.next=ptr.next.next;
-			ptr.next.next.prev=ptr;
-		}
-	}
-	
-	public void Display() {
-		ptr=head;
-		while (ptr!=null) {
-			System.out.print(ptr.data+"\t");
-			ptr=ptr.next;
-		}
-		System.out.println();
+		}   	
 	}
 }
