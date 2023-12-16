@@ -1,3 +1,4 @@
+package javalab;
 import java.util.Scanner;
 public class MultiThreadMultiply {
 	public static void main (String[] args) {
@@ -11,9 +12,9 @@ public class MultiThreadMultiply {
 		Thread1 thread1=new Thread1(number1);
 		Thread2 thread2=new Thread2(number2);
 		Thread3 thread3=new Thread3(number3);
-		thread1.setPriority(1);
+		thread1.setPriority(7);
 		thread2.setPriority(5);
-		thread3.setPriority(7);
+		thread3.setPriority(1);
 		thread1.start();
 		thread2.start();
 		thread3.start();
@@ -23,7 +24,6 @@ public class MultiThreadMultiply {
 class NumberClass {
 	int number;
 	synchronized public void tableGenerator(int number) {
-		//System.out.println("****Table of "+number+" ****");
 		for (int i=1;i<=10;i++) {
 			System.out.println(number+" * "+i+" = "+number*i);
 		}
@@ -37,6 +37,11 @@ class Thread1 extends Thread {
 		this.number1=number;
 	}
 	public void run() {
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		numbermanager.tableGenerator(number1);
 	}
 }
@@ -48,6 +53,11 @@ class Thread2 extends Thread {
 		this.number2=number;
 	}
 	public void run() {
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		numbermanager.tableGenerator(number2);
 	}
 }
@@ -59,6 +69,11 @@ class Thread3 extends Thread {
 		this.number3=number;
 	}
 	public void run() {
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		numbermanager.tableGenerator(number3);
 	}
 }
