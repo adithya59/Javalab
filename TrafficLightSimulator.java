@@ -1,6 +1,5 @@
-/*Write a Java program that simulates a traffic light. The program lets the user select one of
-three lights: red, yellow, or green. When a radio button is selected, the light is turned on,
-and only one light can be on at a time. No light is on when the program starts*/
+package javalab;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +12,7 @@ public class TrafficLightSimulator extends JFrame implements ActionListener {
     public TrafficLightSimulator() {
         setTitle("Traffic Light Simulator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(200, 400);
+        setSize(400, 400);
         setLayout(new BorderLayout());
 
         redButton = new JRadioButton("Red");
@@ -43,12 +42,12 @@ public class TrafficLightSimulator extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == redButton) {
-            lightPanel.setColors(Color.RED, Color.LIGHT_GRAY, Color.LIGHT_GRAY);
+        if (e.getSource() == greenButton) {
+            lightPanel.setColors(Color.GREEN, Color.LIGHT_GRAY, Color.LIGHT_GRAY);
         } else if (e.getSource() == yellowButton) {
             lightPanel.setColors(Color.LIGHT_GRAY, Color.YELLOW, Color.LIGHT_GRAY);
-        } else if (e.getSource() == greenButton) {
-            lightPanel.setColors(Color.LIGHT_GRAY, Color.LIGHT_GRAY, Color.GREEN);
+        } else if (e.getSource() == redButton) {
+            lightPanel.setColors(Color.LIGHT_GRAY, Color.LIGHT_GRAY, Color.RED);
         }
     }
 
@@ -61,7 +60,7 @@ class TrafficLightPanel extends JPanel {
     private Color color1, color2, color3;
 
     public TrafficLightPanel() {
-        setPreferredSize(new Dimension(100, 300));
+        setPreferredSize(new Dimension(150, 350));
         setColors(Color.LIGHT_GRAY, Color.LIGHT_GRAY, Color.LIGHT_GRAY);
     }
 
@@ -72,13 +71,27 @@ class TrafficLightPanel extends JPanel {
         repaint();
     }
 
-    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        int diameter = 80;
-        int x = getWidth() / 2 - diameter / 2;
-        int y = getHeight() / 6;
+        int postWidth = 10;
+        int postHeight = getHeight();
+        int postX = getWidth() / 2 - postWidth / 2;
+
+        g.setColor(Color.DARK_GRAY);
+        g.fillRect(postX, 0, postWidth, postHeight);
+
+        int boxWidth = 80;
+        int boxHeight = 220;
+        int boxX = postX - boxWidth / 2;
+        int boxY = getHeight() / 90-10;
+
+        g.setColor(Color.BLACK);
+        g.fillRect(boxX, boxY, boxWidth, boxHeight);
+
+        int diameter = 60;
+        int x = postX - diameter / 2;
+        int y = boxY + 10;
 
         g.setColor(color1);
         g.fillOval(x, y, diameter, diameter);
